@@ -1,0 +1,29 @@
+<h1>Books CBV</h1>
+<table>
+	<thead>
+		<th>Name</th>
+		<th>Url</th>
+		<th>IconFile</th>
+		<th>Partner</th>
+		<th>Country</th>
+		<th>MobileType</th>
+		<th>Position</th>
+		<th>Edit</th>
+	</thead>
+	<tbody>
+		{% for content in object_list %}
+		<tr>
+			<td>{{content.name}}</td>
+			<td>{{content.url}}</td>
+			<td>{{content.iconfile.url}}</td>
+			<td>{{content.partner}}</td>
+			<td>{{content.country}}</td>
+			<td>{{content.mobiletype}}</td>
+			<td>{{content.position}}</td>
+			<td><a href="{% url 'content:content_edit' content.id %}">edit</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<a href="{% url 'content:content_new' %}">New</a>
